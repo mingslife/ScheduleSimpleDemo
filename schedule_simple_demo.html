@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width">
+	<title>课程表</title>
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/bootstrap-table/1.11.1/bootstrap-table.min.css" />
+</head>
+
+<body>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h3>课程表（第8周）</h3>
+			<table id="course-table"></table>
+			<p class="help-block">* 点击具体课程查看课程信息</p>
+		</div>
+	</div>
+</div>
+
+<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
+<script src="http://cdn.bootcss.com/bootbox.js/4.4.0/bootbox.min.js"></script>
+<script>
+var COURSE_COLUMN_WIDTH = "13.5%";
+var courseFormatter = function(value, row, index) {
+	if (value) {
+		return '<a class="course" href="javascript:;">' + value.courseName + '</a>';
+	}
+};
+var courseEvents = {
+	"click .course": function(e, value, row, index) {
+		// console.info(value);
+		bootbox.alert({
+			size: "small",
+			title: '<span class="glyphicon glyphicon-book"></span> 课程信息',
+			message: '课程名称: {courseName}<br />上课时间: {time}<br />上课地点: {classroom}'.replace("{courseName}", value.courseName)
+																							.replace("{time}", value.time)
+																							.replace("{classroom}", value.classroom)
+		});
+	}
+};
+
+function getCoursesByPosition(courses, position) {
+	var temp = {};
+	for (var i = 0, length = courses.length; i < length; i++) {
+		var day = courses[i];
+		var datas = day.datas;
+		for (var j = 0, len = datas.length; j < len; j++) {
+			var course = datas[j];
+			if (course.position === position) {
+				temp[day.type] = course;
+			}
+		}
+	}
+	temp.position = position;
+	return temp;
+}
+
+$("#course-table").bootstrapTable({
+	striped: true,
+	escape: true,
+	// method: "get",
+	url: "courses.json",
+	columns: [{
+		field: "position",
+		title: "节数",
+		align: "center"
+	}, {
+		field: "monday",
+		title: "周一",
+		width: COURSE_COLUMN_WIDTH,
+		formatter: courseFormatter,
+		events: courseEvents
+	}, {
+		field: "tuesday",
+		title: "周二",
+		width: COURSE_COLUMN_WIDTH,
+		formatter: courseFormatter,
+		events: courseEvents
+	}, {
+		field: "webnesday",
+		title: "周三",
+		width: COURSE_COLUMN_WIDTH,
+		formatter: courseFormatter,
+		events: courseEvents
+	}, {
+		field: "thursday",
+		title: "周四",
+		width: COURSE_COLUMN_WIDTH,
+		formatter: courseFormatter,
+		events: courseEvents
+	}, {
+		field: "friday",
+		title: "周五",
+		width: COURSE_COLUMN_WIDTH,
+		formatter: courseFormatter,
+		events: courseEvents
+	}, {
+		field: "saturday",
+		title: "周六",
+		width: COURSE_COLUMN_WIDTH,
+		formatter: courseFormatter,
+		events: courseEvents
+	}, {
+		field: "sunday",
+		title: "周日",
+		width: COURSE_COLUMN_WIDTH,
+		formatter: courseFormatter,
+		events: courseEvents
+	}],
+	responseHandler: function(res) { // 行列转置
+		// console.info(res);
+		// 按节数进行划分，一天最多5节课，该数组每个元素包含每天该节课的具体科目，每个元素都是一个数组，该数组最多有7个元素（对应周一到周日）
+		var courseArray = new Array(5);
+		for (var position = 1; position <= 5; position++) {
+			courseArray[position - 1] = getCoursesByPosition(res, position);
+		}
+		// console.info(courseArray);
+		return courseArray;
+	}
+});
+
+// For XL
+</script>
+</body>
+</html>

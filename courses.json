@@ -1,0 +1,125 @@
+[{
+	"id": 1,
+	"type": "monday",
+	"datas": [{
+		"courseId": 1,
+		"courseName": "交换与路由",
+		"position": 1,
+		"time": "8:20-10:00",
+		"classroom": "3教0408"
+	}, {
+		"courseId": 2,
+		"courseName": "计算机网络",
+		"position": 2,
+		"time": "10:20-12:00",
+		"classroom": "6教0105"
+	}]
+}, {
+	"id": 2,
+	"type": "tuesday",
+	"datas": [{
+		"courseId": 1,
+		"courseName": "交换与路由",
+		"position": 1,
+		"time": "8:20-10:00",
+		"classroom": "4教0304"
+	}, {
+		"courseId": 3,
+		"courseName": "网络协议分析与开发",
+		"position": 3,
+		"time": "14:00-15:40",
+		"classroom": "4教0207(0208)"
+	}, {
+		"courseId": 4,
+		"courseName": "大学英语（IV）",
+		"position": 4,
+		"time": "16:00-17:40",
+		"classroom": "1教0710"
+	}, {
+		"courseId": 5,
+		"courseName": "大学生职业生涯规划",
+		"position": 5,
+		"time": "19:00-20:40",
+		"classroom": "未知"
+	}]
+}, {
+	"id": 3,
+	"type": "webnesday",
+	"datas": [{
+		"courseId": 1,
+		"courseName": "交换与路由",
+		"position": 1,
+		"time": "8:20-10:00",
+		"classroom": "3教0205"
+	}, {
+		"courseId": 4,
+		"courseName": "大学英语（IV）",
+		"position": 2,
+		"time": "10:20-12:00",
+		"classroom": "4教0510"
+	}, {
+		"courseId": 6,
+		"courseName": "马克思主义基本原理+形势与政策",
+		"position": 5,
+		"time": "19:00-20:40",
+		"classroom": "未知"
+	}]
+}, {
+	"id": 4,
+	"type": "thursday",
+	"datas": [{
+		"courseId": 7,
+		"courseName": "大学体育（网球）",
+		"position": 2,
+		"time": "10:20-12:00",
+		"classroom": "操场"
+	}, {
+		"courseId": 3,
+		"courseName": "网络协议分析与开发",
+		"position": 3,
+		"time": "14:00-15:40",
+		"classroom": "4教0314"
+	}, {
+		"courseId": 8,
+		"courseName": "数据结构",
+		"position": 4,
+		"time": "16:00-17:40",
+		"classroom": "5教0206"
+	}]
+}, {
+	"id": 5,
+	"type": "friday",
+	"datas": [{
+		"courseId": 2,
+		"courseName": "计算机网络",
+		"position": 1,
+		"time": "8:20-10:00",
+		"classroom": "6教0105"
+	}, {
+		"courseId": 6,
+		"courseName": "马克思主义基本原理+形势与政策",
+		"position": 3,
+		"time": "14:00-17:40",
+		"classroom": "3教0408"
+	}]
+}, {
+	"id": 6,
+	"type": "saturday",
+	"datas": [{
+		"courseId": 8,
+		"courseName": "数据结构",
+		"position": 1,
+		"time": "8:20-10:00",
+		"classroom": "1教0505"
+	}, {
+		"courseId": 8,
+		"courseName": "数据结构",
+		"position": 2,
+		"time": "10:20-12:00",
+		"classroom": "4教0210"
+	}]
+}, {
+	"id": 7,
+	"type": "sunday",
+	"datas": []
+}]
